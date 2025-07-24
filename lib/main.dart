@@ -6,8 +6,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:provider/provider.dart';
 import 'package:chat_via/services/firebase_auth_methods.dart';
-import 'package:chat_via/screens/signup_email_password_screen.dart';
-import 'package:chat_via/screens/login_email_password_screen.dart';
+// import 'package:chat_via/screens/signup_email_password_screen.dart';
+// import 'package:chat_via/screens/login_email_password_screen.dart';
 import 'package:chat_via/screens/login_screen.dart';
 
 void main() async {
@@ -39,11 +39,6 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: Color(0xFF0A0E21),
         ),
         home: const AuthWrapper(),
-        routes: {
-          EmailPasswordSignup.routeName: (context) =>
-          const EmailPasswordSignup(),
-          EmailPasswordLogin.routeName: (context) => const EmailPasswordLogin()
-        },
       )
     );
   }
@@ -56,10 +51,10 @@ class AuthWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     final firebaseUser = context.watch<User?>();
 
-    if (firebaseUser != null) {
+    // if (firebaseUser != null) {
       return HomeScreen();
-    }
-    return const LoginScreen();
+    // }
+    // return const LoginScreen();
   }
 }
 
