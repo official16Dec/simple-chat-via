@@ -39,15 +39,14 @@ class FirebaseAuthMethods {
       if (kIsWeb) {
         GoogleAuthProvider googleProvider = GoogleAuthProvider();
 
-        googleProvider
-            .addScope('https://www.googleapis.com/auth/contacts.readonly');
+        googleProvider.addScope('https://www.googleapis.com/auth/contacts.readonly');
 
         await _auth.signInWithPopup(googleProvider);
-      } else {
+      }
+      else {
         final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-        final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
+        final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
 
         if (googleAuth?.accessToken != null && googleAuth?.idToken != null) {
           // Create a new credential
@@ -55,8 +54,7 @@ class FirebaseAuthMethods {
             accessToken: googleAuth?.accessToken,
             idToken: googleAuth?.idToken,
           );
-          UserCredential userCredential =
-          await _auth.signInWithCredential(credential);
+          UserCredential userCredential = await _auth.signInWithCredential(credential);
 
           // if you want to do specific task like storing information in firestore
           // only for new users using google sign in (since there are no two options
