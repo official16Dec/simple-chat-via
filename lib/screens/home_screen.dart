@@ -21,18 +21,17 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Padding(
-            padding: EdgeInsets.all(8.0),
-            child: TextField(
-              decoration: InputDecoration(
-                labelText: 'Search',
-                suffixIcon: Icon(Icons.search),
-              ),
-              onChanged: (value) {
-                setState(() {
-                  searchString = value.toLowerCase();
-                });
-              },
-            ),
+              padding: EdgeInsets.all(16),
+              child: TextField(
+                decoration: InputDecoration(
+                  labelText: 'Search person to send message',
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(),
+                    borderRadius: BorderRadius.all(Radius.circular(16.0))
+                  ),
+                  suffixIcon: Icon(Icons.search),
+                ),
+              )
           ),
         ],
       ),
