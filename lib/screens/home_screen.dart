@@ -31,8 +31,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   suffixIcon: Icon(Icons.search),
                 ),
+                onChanged: (value) {
+                  setState(() {
+                    searchString = value.toLowerCase();
+                  });
+                },
               )
           ),
+          Text("Your recent conversation")
         ],
       ),
     );
